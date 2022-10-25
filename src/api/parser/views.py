@@ -6,6 +6,11 @@ from src.utils.parser.html_handler import SubCategoryParser, HtmlHandler
 parser_api = Blueprint("parser_api", __name__)
 
 
+@parser_api.route("/", methods=["GET"])
+def start_page():
+    return jsonify("It works!")
+
+
 @parser_api.route("/category/parse", methods=["GET"])
 def parse_categories():
     for category in HtmlHandler().categories:
